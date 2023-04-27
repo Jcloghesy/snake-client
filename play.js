@@ -21,10 +21,17 @@ const connect = function () {
   /** interpret incoming data as text */
   conn.setEncoding("utf8");
 
+  /** *** CONNECTED - event handler - confirms successful server connection ***
+  *  - logs message to client/player upon establishing successful with server 
+  */
+  conn.on('connect',()=>{
+    console.log('You\'re successfully connected to the server.');
+  });
+  
   return conn;
 };
 
-/** Log message to console client is attempting to connect to server */
+/** Logs message to console client is attempting to connect to server */
 console.log("Connecting ...");
 
 connect();
