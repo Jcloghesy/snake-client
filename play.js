@@ -35,21 +35,7 @@ const connect = function () {
    */
   conn.on('data', (data) => {
     console.log(`Server says: ${data}`);
-  }); 
-  
-  /**  TODO *** IDLE TIMEOUT EVENT Handler - initial work***
-   *  - placeholder for idle timeout event to be implemented
-   *  - this handler allows `connect` function to log user off when idle  
-   *  - for set amount of continuous time (say 20 seconds)
-   *  - Upon being logged off, log message on client 'Yo cuz, you ded ...'
-   */ /*
-  conn.setTimeout(20000);
-  conn.on('timeout', () => {
-  console.log('Yo cuz, you ded - you ded cuz you been idle! \n This servers be hav\'n some serious fangs and a bad attitude!' );
-  conn.end();
-  });
-  */
-
+  });  
   return conn;
 };
 
