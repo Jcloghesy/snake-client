@@ -37,7 +37,10 @@ const handleUserInput = function (data) {
     connection.write("Move: down");
   } else if (data === "d") {
     connection.write("Move: right");
-  }
+  } else if (data === "v") {
+    connection.write("Say: It is 'V' for Victory!!");
+  } else if (data === "x") {
+    connection.write("Say: You all going to end up ded, so might as well quit now!!")};
 };
 
 /** *** Implements setupInput function *** 
