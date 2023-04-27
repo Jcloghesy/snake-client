@@ -18,16 +18,25 @@ const connect = function () {
     port: 50541,       /* PORT number here */
   });
 
-  /** interpret incoming data as text */
+  /** *** DATA AS TEXT - interpret incoming data as text *** */
   conn.setEncoding("utf8");
 
   /** CONNECTED - event handler with SEND NAME with additional feature **
   * - Upon server connection, logs message 'You're successfully connected ... '
-  * - Additional message is also sent with snake's name 'Name: JCC'  
+  * - Additional message is also sent with snake's name 'Name: JCC'
+  *   
   */
   conn.on('connect',()=>{
     console.log('You\'re successfully connected to the server.');
     conn.write('Name: JCC ');
+    /** Move: Up Command sent to server with set interval 200 milliseconds */
+      /*  - commented out as per directions
+      conn.write("Move: up"); 
+      setInterval(() => { 
+        conn.write("Move: up"); 
+        }, 200
+      );
+      */    
   });
 
   /** INCOMING DATA - event handler **
