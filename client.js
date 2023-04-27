@@ -7,7 +7,7 @@
  *     - Immediately logs message to client "Connecting …" until connected
  *     - Assumes `localhost` as host IP address when connecting 
  *     - Assumes port 50541 
- *     - Event handlers incorporated - CONNECTED & INCOMING DATA
+ *     - Event handlers incorporated - CONNECTED (with name) & INCOMING DATA
  */
 const net = require("net");
 
@@ -21,11 +21,13 @@ const connect = function () {
   /** interpret incoming data as text */
   conn.setEncoding("utf8");
 
-  /** *** CONNECTED - event handler - confirms successful server connection ***
-  *  - logs message to client/player upon establishing successful with server 
+  /** CONNECTED - event handler with SEND NAME with additional feature **
+  * - Upon server connection, logs message 'You're successfully connected ... '
+  * - Additional message is also sent with snake's name 'Name: JCC'  
   */
   conn.on('connect',()=>{
     console.log('You\'re successfully connected to the server.');
+    conn.write('Name: JCC ');
   });
 
   /** INCOMING DATA - event handler **
