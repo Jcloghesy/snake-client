@@ -8,6 +8,7 @@
  *     - Immediately logs message to client "Connecting …" until connected
  *     - Assumes `localhost` as host IP address when connecting 
  *     - Assumes port 50541 
+ *     - Event handlers incorporated - CONNECTED & INCOMING DATA
  */
 const net = require("net");
 
@@ -27,7 +28,14 @@ const connect = function () {
   conn.on('connect',()=>{
     console.log('You\'re successfully connected to the server.');
   });
-  
+
+  /** INCOMING DATA - event handler **
+   *  - allows `connect` function to handle incoming data
+   *  - upon receipt of data, logs message 'Server say:' then data
+   */
+  conn.on('data', (data) => {
+    console.log(`Server says: ${data}`);
+  });  
   return conn;
 };
 
