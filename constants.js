@@ -16,8 +16,8 @@ const keyboardInputs = {
   a: "Move: left",
   s: "Move: down",
   d: "Move: right",
-  v: "Say: It is 'V' for Victory!!",
-  x: "Say: You all going to end up ded, so might as well quit now!!"
+  v: "Say: Hit 'V' for Victory",
+  x: "Say: You\'re going to lose"
 };
 
 /** Export the `IP`, `PORT` and `keyboardInputs` variables as a single object */
